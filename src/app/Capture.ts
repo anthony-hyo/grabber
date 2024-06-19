@@ -28,13 +28,13 @@ export default class Capture {
 
     private handler(data: any): void {
         this.log.info(JSON.stringify(data));
+
         try {
             writeFileSync('logfile.log', JSON.stringify(data) + '\n', { flag: 'a' });
         } catch (err) {
             console.error('Error writing to log file:', err);
         }
 
-        return
         const targetRequest: Function = (this as any)[data.cmd];
 
         if (targetRequest !== undefined) {
