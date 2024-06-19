@@ -1,0 +1,55 @@
+{
+  "name": "grabber",
+  "version": "2.1.5",
+  "main": "grabber/main.js",
+  "dependencies": {
+    "@types/node": "^20.10.4",
+    "axios": "^1.3.6",
+    "electron-log": "^3.0.9",
+    "electron-updater": "4.3.5",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "del-cli": "^3.0.1",
+    "electron": "^11.2.0",
+    "electron-builder": "^21.2.0"
+  },
+  "scripts": {
+    "compile-win": "npm run clean && tsc && npm run copy-win",
+    "clean": "del-cli --force grabber",
+    "copy-win": "copyfiles src/public/** grabber -u 1",
+    "start": "npm run compile-win && electron grabber/main.js",
+    "test": "npm run compile-win && electron grabber/test.js",
+    "dist-win": "npm run compile-win && electron-builder ./grabber/"
+  },
+  "build": {
+    "appId": "com.grabber.app",
+    "productName": "Grabber",
+    "compression": "maximum",
+    "files": [
+      "!plugins/*",
+      "!src/*",
+      "!tsconfig.json"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "asuna.ico",
+      "extraFiles": [
+        {
+          "from": "./plugins/Windows/${arch}",
+          "to": "./resources/plugins/Windows/${arch}",
+          "filter": [
+            "pepflashplayer${arch}_31_0_0_153.dll",
+            "!/plugins/*"
+          ]
+        }
+      ]
+    }
+  },
+  "license": "ISC"
+}

@@ -1,0 +1,36 @@
+export default interface IItem {
+    iCost: number
+    iQty: number
+    sES: string
+    bUpg: string
+    iStk: string
+    iQtyRemain: string
+    iQSindex: string
+    bStaff: string
+    iClass: string
+    iDPS: string
+    iQSvalue: string
+    iRty: string
+    iLvl: string
+    ItemID: string
+    sType: string
+    iReqRep: string
+    EnhID: any
+    iRng: string
+    sLink: string
+    bCoins: string
+    bTemp: string
+    sName: string
+    sElmt: string
+    sIcon: string
+    ShopItemID: string
+    sFile: string
+    sFaction: string
+    iReqCP: string
+    bHouse: string
+    sDesc: string
+    FactionID: string
+    EnhRty?: number
+    EnhLvl?: number
+    EnhPatternID?: string
+}

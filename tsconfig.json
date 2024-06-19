@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "UMD",
+        "outDir": "grabber",
+        "rootDir": "src",
+        "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "strict": false
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "grabber",
+        "node_modules"
+    ]
+}
